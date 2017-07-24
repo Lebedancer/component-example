@@ -1,0 +1,34 @@
+/*Имя класса колонки*/
+@column-name: col;
+/*Количество колонок*/
+@column-count: 24;
+
+.generate-column(@i: 1) when (@i =< @column-count) {
+    .@{column-name}_@{i} {
+        &:extend(.col);
+        width: (@i * 100% / @column-count);
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .generate-column(@i + 1);
+}
+/* Общий wrapper */
+.wrapper {
+    max-width:1094px;
+    padding: 0 40px;
+}
+/* Строка */
+.row {
+    display: flex;
+    margin: 0 0 25px 0;
+    padding: 0;
+}
+
+/*Общие стили для колонок*/
+.col {
+    margin: 0 10px 0 0;
+}
+
+/* Генерация 24-рёх колонок */
+.generate-column();
