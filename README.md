@@ -9,3 +9,5 @@
 Code styles: https://github.com/Lebedancer/component-example/wiki
 
 Пример компонента: https://github.com/Lebedancer/component-example/tree/master/src/components/Button
+
+Demo: *yarn start*
