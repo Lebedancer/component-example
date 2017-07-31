@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i');
+
+@width: 350px;
+
+.container {
+	width: @width;
+	text-align: center;
+	font-family: 'Roboto Regular', sans-serif;
+
+	.title {
+		font-size: 30px;
+	}
+
+	.cell {
+		width: 25%;
+		min-width: 45px;
+		height: 38px;
+		line-height: 38px;
+		display: inline-block;
+		box-sizing: border-box;
+		font-size: 14px;
+		color: #333333;
+		transition: fill-opacity 175ms, transform 175ms, fill 175ms;
+
+		&:hover {
+			background: #F8F8F8;
+		}
+	}
+	.selected {
+		background: #FFFFCC;
+
+		&:hover{
+			background: #FFFFCC;
+		}
+	}
+
+	.disabled {
+		background: #FFFFFF;
+		color: #BFCBD9
+	}
+}

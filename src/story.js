@@ -4,6 +4,10 @@ import { action } from '@storybook/addon-actions';
 import Button from "./components/Button";
 
 storiesOf('Button', module)
+    .add('Календарь годов', () => <YearsComponent></YearsComponent> )
+    .add('Календарь месяцев', () => <div></div> )
+    .add('Календарь дней', () => <div></div> )
+    .add('Календарь период', () => <div></div> )
     .add('default', () => <Button onClick={action('нажал')}>Жми</Button>)
     .add('big', () => <Button size="big" onClick={action('нажал')}>Жми</Button>)
     .add('small', () => <Button size="small" onClick={action('нажал')}>Жми</Button>)
