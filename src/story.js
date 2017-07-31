@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from "./components/Button";
+import YearsComponent from "./components/Calendar/Years/YearsComponent";
+
 
 storiesOf('Button', module)
     .add('Календарь годов', () => <YearsComponent></YearsComponent> )
