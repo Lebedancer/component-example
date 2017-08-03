@@ -2,8 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from "./components/Button";
+import YearsComponent from "./components/Calendar/Years/YearsComponent";
+
 
 storiesOf('Button', module)
+    .add('Календарь годов', () => <YearsComponent firstDate = '2011' lastDate = '2018'></YearsComponent> )
+    .add('Календарь месяцев', () => <div></div> )
+    .add('Календарь дней', () => <div></div> )
+    .add('Календарь период', () => <div></div> )
     .add('default', () => <Button onClick={action('нажал')}>Жми</Button>)
     .add('big', () => <Button size="big" onClick={action('нажал')}>Жми</Button>)
     .add('small', () => <Button size="small" onClick={action('нажал')}>Жми</Button>)

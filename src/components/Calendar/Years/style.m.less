@@ -1,0 +1,43 @@
+@width: 350px;
+@selected: #FFFFCC;
+@disabled: #FFFFFF;
+@focus: #F8F8F8;
+
+.container {
+    width: @width;
+    text-align: center;
+    font-family: 'Roboto Regular', sans-serif;
+
+    .title {
+        font-size: 30px;
+    }
+
+    .cell {
+        width: 25%;
+        min-width: 45px;
+        height: 38px;
+        line-height: 38px;
+        display: inline-block;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: #333333;
+
+        &:hover {
+            background: @focus;
+            transition: 175ms;
+        }
+    }
+    .selected {
+        background: @selected;
+        transition: 175ms;
+
+        &:hover{
+            background: @selected;
+        }
+    }
+
+    .disabled {
+        background: @disabled;
+        color: #BFCBD9
+    }
+}
