@@ -1,70 +1,62 @@
 import React from 'react';
 import classnames from 'classnames/bind';
 import style from './style.m.less';
+import CellComponent from './CellComponent';
+import '../../../styles/font.less';
 
 let cn = classnames.bind(style);
 
 export default class YearsComponent extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            focus: false,
             date: [],
-            isSelected: false
+            isSelectedIndex: -1,
+            isDisabled: 2018
         };
-        this.fillData();
+
+        const { firstDate, lastDate } = this.props;
+
+        this.fillData(firstDate, lastDate);
     }
 
-    render(){
-    	return (
-    		<div className={cn('container')}>
-
-                <span className={cn('title')}>Кадендарь годов</span>
+    render() {
+        return (
+            <div className={ cn('container') }>
+                <span className={ cn('title') }>
+                    Кадендарь годов
+                </span>
                 {this.renderYear()}
-
             </div>
-    	)
+        )
+    }
+
+    isSelected = index => {
+        this.setState({ isSelectedIndex: index })
     }
 
     renderYear = () => {
-    	return <div> {this.state.date.map((val,index) => {
-                        return <div className={this.getClassNames()}
-                                    onClick={(e)=>{this.toggle(e)}}
-                                    onDoubleClick={(e)=>{this.setDisabled(e)}}
-                                    key={index}
-                        >{val}</div>
+        return <div> {this.state.date.map((val,index) => {
+                        return <CellComponent 
+                            value={ val } 
+                            index={ index } 
+                            key={ index } 
+                            isSelected={ this.isSelected } 
+                            isSelectedIndex={ this.state.isSelectedIndex }
+                            isDisabled={ this.state.isDisabled }/>
                      })}
                 </div>
 
     };
 
-    toggle = (e) => {
-        let arr = document.getElementsByClassName('style-m__cell___3veA4');
-        for(let i = 0; i<arr.length; i++){
-            arr[i].className = cn('cell')
-        }
-        e.target.className = cn('cell','selected');
-    };
 
-    setDisabled = (e) => {
-        if(e.target.className.indexOf('disabled')<0){
-            e.target.className = cn('cell','disabled')
-        }else{
-            e.target.className = cn('cell')
-        }
-    };
-
-    getClassNames = () => {
-        return cn('cell',{'selected':this.state.isSelected});
-    };
-
-    fillData = () => {
-        let date = new Date();
-        let firstDate = date.getFullYear()-7;
+    fillData = (f='2010',l='2017') => {
         let data = [];
-
-        for(let i=0; i<8; i++){
-            data.push(firstDate+i);
+        let firstDate = parseInt(f);
+        let lastDate = parseInt(l);
+        for( let i = firstDate; i <= lastDate; i++){
+            data.push(i);
         }
         this.state.date = data;
     }

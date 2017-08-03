@@ -6,7 +6,7 @@ import YearsComponent from "./components/Calendar/Years/YearsComponent";
 
 
 storiesOf('Button', module)
-    .add('Календарь годов', () => <YearsComponent></YearsComponent> )
+    .add('Календарь годов', () => <YearsComponent firstDate = '2011' lastDate = '2018'></YearsComponent> )
     .add('Календарь месяцев', () => <div></div> )
     .add('Календарь дней', () => <div></div> )
     .add('Календарь период', () => <div></div> )
